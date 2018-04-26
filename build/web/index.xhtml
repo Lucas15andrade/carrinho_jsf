@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Listra de produtos</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable value="#{loja.listaProdutos}" var="produto">
+                <h:column>
+                    <f:facet name="header">Nome</f:facet>
+                        #{produto.nome}
+
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Preço</f:facet>
+                        #{produto.preco}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Estoque</f:facet>
+                        #{produto.estoque}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Descricao</f:facet>
+                        #{produto.descricao}
+                    <h:commandButton action="#{loja.adicionarCarrinho(produto)}" value="Add"/>
+                </h:column>     
+            </h:dataTable>
+        </h:form>
+        <h:button outcome="/verCarrinho.xhtml" value="Ver Carrinho"></h:button>
+        <br/>
+        <br/>
+        <h:button outcome="/cadastroProduto.xhtml" value="Cadastrar Produto"></h:button>
+    </h:body>
+</html>
