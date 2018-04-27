@@ -1,0 +1,1 @@
+Carrinho simplificado utilizando JSF
